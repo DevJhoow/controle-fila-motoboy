@@ -29,4 +29,7 @@ RUN composer install --no-dev --optimize-autoloader
 # Permissões
 RUN chown -R www-data:www-data storage bootstrap/cache
 
+RUN php artisan migrate --force || true
+
+
 EXPOSE 80
