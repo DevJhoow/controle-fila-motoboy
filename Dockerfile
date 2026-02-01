@@ -31,5 +31,35 @@ RUN chown -R www-data:www-data storage bootstrap/cache
 
 RUN php artisan migrate --force || true
 
+FROM php:8.2-apache
+
+# Dependências do sistema
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    unzip \
+    git \
+    && docker-php-ext-install pdo pdo_pgsql
+
+# Apache
+RUN a2enmod rewrite
+
+# Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Projeto
+COPY . /var/www/html
+WORKDIR /var/www/html
+
+# Dependências Laravel
+RUN composer install --no-dev --optimize-autoloader
+
+# Permissões
+RUN chown -R www-data:www-data storage bootstrap/cache
+
+# 🔥 COMANDO FINAL (ESSA LINHA É O START COMMAND)
+CMD php artisan migrate --force \
+ && php artisan db:seed --force \
+ && apache2-foreground
+
 
 EXPOSE 80
