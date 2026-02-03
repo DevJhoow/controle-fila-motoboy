@@ -1,59 +1,63 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚴‍♂️ Gerenciamento da fila de Motoboy 
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistema simples e eficiente para **organizar a fila de motoboys em restaurantes**, evitando confusão, discussões e atrasos no atendimento.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📌 Entenda o problema
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Em muitos restaurantes, a chamada de motoboys é feita de forma manual ou verbal.  
+Isso acaba gerando:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- ❌ Confusão na ordem de atendimento  
+- ❌ Discussões entre motoboys  
+- ❌ Falta de transparência na fila  
+- ❌ Perda de tempo para o restaurante  
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## ✅ Solução
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Este sistema cria uma **fila digital, justa e transparente**, acessível pelo celular, onde todos conseguem visualizar:
 
-## Laravel Sponsors
+- Quem está na fila  
+- Qual é a sua posição atual  
+- Quem é o próximo a ser atendido  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Tudo de forma simples e intuitiva.
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🛵 Benefícios para os motoboys
 
-## Contributing
+- ✔ Ordem justa de atendimento  
+- ✔ Visualização clara da posição na fila  
+- ✔ Menos estresse e conflitos  
+- ✔ Possibilidade de entrar e sair da fila facilmente  
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 🏪 Benefícios para os restaurantes
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- ✔ Organização no atendimento  
+- ✔ Mais agilidade na entrega dos pedidos  
+- ✔ Redução de conflitos no balcão  
+- ✔ Processo simples e visual para todos  
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🛠️ Tecnologias utilizadas
 
-## License
+- Laravel  
+- PHP 8.2  
+- PostgreSQL  
+- Docker  
+- Render  
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 🚀 Status do projeto
+
+✔ Em desenvolvimento  
+✔ Deploy ativo  
+✔ Focado em uso real no ambiente de trabalho
