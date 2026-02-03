@@ -59,5 +59,5 @@ Tudo de forma simples e intuitiva.
 ## 🚀 Status do projeto
 
 ✔ Em desenvolvimento  
-✔ Deploy ativo  
+✔ Deploy ativo  " https://test1-2-8ayq.onrender.com "
 ✔ Focado em uso real no ambiente de trabalho
