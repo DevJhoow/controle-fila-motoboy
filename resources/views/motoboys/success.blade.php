@@ -48,45 +48,43 @@
     </style>
 </head>
 <body>
+    <div class="container px-3">
+        <div class="card p-4 text-center">
 
-<div class="container px-3">
-    <div class="card p-4 text-center">
+            <div class="mb-3">
+                <i class="bi bi-check-circle-fill icon-success"></i>
+            </div>
 
-        <div class="mb-3">
-            <i class="bi bi-check-circle-fill icon-success"></i>
+        <h4 class="fw-bold mb-2 text-success">
+                Cadastro realizado!
+        </h4>
+
+
+            <p class="text-muted mb-4">
+                Seja bem-vindo à fila de entregas
+            </p>
+
+            <p class="mb-1">
+                <strong class="text-success">
+                    {{ $motoboy->nome }} {{ $motoboy->sobrenome }}
+                </strong>
+            </p>
+
+            <p class="mb-4">
+                <strong style="color:#000000;">
+                {{ $motoboy->restaurante?->nome }}
+                </strong>
+            </p>
+
+            <div class="d-grid">
+                <a href="{{ route('motoboys.dashboard', $motoboy->id) }}"
+                class="btn btn-primary btn-lg">
+                    <i class="bi bi-speedometer2 me-1"></i>
+                    Ir para o painel
+                </a>
+            </div>
+
         </div>
-
-       <h4 class="fw-bold mb-2 text-success">
-            Cadastro realizado!
-       </h4>
-
-
-        <p class="text-muted mb-4">
-            Seja bem-vindo à fila de entregas
-        </p>
-
-        <p class="mb-1">
-            <strong class="text-success">
-                  {{ $motoboy->nome }} {{ $motoboy->sobrenome }} 
-             </strong>
-        </p>
-
-        <p class="mb-4">
-            <strong style="color:#000000;">
-              {{ $motoboy->restaurante?->nome }}
-            </strong>
-        </p>
-
-        <div class="d-grid">
-            <a href="{{ route('motoboys.dashboard', $motoboy->id) }}"
-               class="btn btn-primary btn-lg">
-                <i class="bi bi-speedometer2 me-1"></i>
-                Ir para o painel
-            </a>
-        </div>
-
     </div>
-</div>
-
 </body>
 </html>

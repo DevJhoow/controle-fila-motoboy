@@ -17,6 +17,21 @@ class MotoboyController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'nome' => [
+                'required',
+                'regex:/^[A-Za-zÀ-ÿ\s]+$/'
+            ],
+            'sobrenome' => [
+                'required',
+                'regex:/^[A-Za-zÀ-ÿ\s]+$/'
+            ],
+            'restaurante_id' => 'required|exists:restaurantes,id',
+        ], [
+            'nome.regex' => 'O nome deve conter apenas letras.',
+            'sobrenome.regex' => 'O sobrenome deve conter apenas letras.',
+        ]);
+
         $motoboy = Motoboy::create(
             $request->only(['nome', 'sobrenome', 'restaurante_id'])
         );

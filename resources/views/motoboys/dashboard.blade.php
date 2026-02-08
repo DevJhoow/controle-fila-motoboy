@@ -99,112 +99,109 @@
 
 </head>
 <body>
+    <div class="container py-4">
 
-<div class="container py-4">
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h4 class="fw-bold">
+                Olá, {{ $motoboy->nome }} 👋
+            </h4>
+            <p class="text-info mb-0">
+                <i class="bi bi-shop"></i>
+                {{ $motoboy->restaurante->nome }}
+            </p>
+        </div>
 
-    <!-- Header -->
-    <div class="text-center mb-4">
-        <h4 class="fw-bold">
-            Olá, {{ $motoboy->nome }} 👋
-        </h4>
-        <p class="text-info mb-0">
-            <i class="bi bi-shop"></i>
-            {{ $motoboy->restaurante->nome }}
-        </p>
-    </div>
+        <!-- Status -->
+        <div class="card p-3 text-center mb-4">
+            <p class="mb-1">Status atual</p>
+            <span class="badge bg-warning text-dark">
+                Aguardando
+            </span>
+        </div>
 
-    <!-- Status -->
-    <div class="card p-3 text-center mb-4">
-        <p class="mb-1">Status atual</p>
-        <span class="badge bg-warning text-dark">
-            Aguardando
-        </span>
-    </div>
+        <!-- Botão Entrar / Sair da fila -->
+        <div class="text-center mb-4">
 
-    <!-- Botão Entrar / Sair da fila -->
-    <div class="text-center mb-4">
+            @if($naFila)
+                <form method="POST" action="{{ route('fila.sair', $motoboy->id) }}">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">
+                        Sair da fila
+                    </button>
+                </form>
+            @else
+                <form method="POST" action="{{ route('fila.entrar', $motoboy->id) }}">
+                    @csrf
+                    <button type="submit" class="btn btn-success">
+                        Entrar na fila
+                    </button>
+                </form>
+            @endif
 
-        @if($naFila)
-            <form method="POST" action="{{ route('fila.sair', $motoboy->id) }}">
-                @csrf
-                <button type="submit" class="btn btn-danger">
-                    Sair da fila
-                </button>
-            </form>
-        @else
-            <form method="POST" action="{{ route('fila.entrar', $motoboy->id) }}">
-                @csrf
-                <button type="submit" class="btn btn-success">
-                    Entrar na fila
-                </button>
-            </form>
+        </div>
+
+        <!-- Mensagem -->
+        @if(session('success'))
+            <div class="alert alert-success text-center">
+                {{ session('success') }}
+            </div>
         @endif
 
-    </div>
+        <!-- Card da minha posição -->
+        @if($minhaPosicao)
+            <div class="card p-3 mb-4 text-center border-success">
+                <h5 class="text-success mb-1">
+                    <i class="bi bi-check-circle"></i>
+                    Você está na fila
+                </h5>
 
-    <!-- Mensagem -->
-    @if(session('success'))
-        <div class="alert alert-success text-center">
-            {{ session('success') }}
-        </div>
-    @endif
+                <p class="mb-0">
+                    Sua posição:
+                    <strong class="fs-4 text-warning">
+                        {{ $minhaPosicao->posicao }}º
+                    </strong>
+                </p>
+            </div>
+        @endif
 
-    <!-- Card da minha posição -->
-    @if($minhaPosicao)
-        <div class="card p-3 mb-4 text-center border-success">
-            <h5 class="text-success mb-1">
-                <i class="bi bi-check-circle"></i>
-                Você está na fila
+        <!-- Fila -->
+        <div class="fila-card p-3 mt-4">
+            <h5 class="titulo-fila">
+                ⏳ Fila de espera
             </h5>
 
-            <p class="mb-0">
-                Sua posição:
-                <strong class="fs-4 text-warning">
-                    {{ $minhaPosicao->posicao }}º
-                </strong>
-            </p>
+            @if($fila->isEmpty())
+                <p class="text-center">
+                    Nenhum motoboy Disponìvel.
+                </p>
+            @else
+                @foreach($fila as $item)
+                    <div class="fila-item {{ $item->posicao === 1 ? 'fila-proximo' : '' }}">
+                        <strong class="text-warning">
+                            {{ $item->posicao }}º
+                        </strong>
+                        —
+                        <span class="text-warning">
+                            {{ $item->motoboy->nome }}  {{ $item->motoboy->sobrenome }}
+                        </span>
+
+                        @if($item->motoboy_id === $motoboy->id)
+                            <span class="badge-voce">
+                                Você
+                            </span>
+                        @endif
+
+                        @if($item->posicao === 1)
+                            <span class="badge-proximo">
+                                Próximo
+                            </span>
+                        @endif
+                    </div>
+                @endforeach
+            @endif
         </div>
-    @endif
 
-    <!-- Fila -->
-    <div class="fila-card p-3 mt-4">
-        <h5 class="titulo-fila">
-            ⏳ Fila de espera
-        </h5>
-
-        @if($fila->isEmpty())
-            <p class="text-center">
-                Nenhum motoboy na fila.
-            </p>
-        @else
-            @foreach($fila as $item)
-                <div class="fila-item {{ $item->posicao === 1 ? 'fila-proximo' : '' }}">
-                    <strong class="text-warning">
-                        {{ $item->posicao }}º
-                    </strong>
-                    —
-                    <span class="text-warning">
-                        {{ $item->motoboy->nome }}  {{ $item->motoboy->sobrenome }}
-                    </span>
-
-                    @if($item->motoboy_id === $motoboy->id)
-                        <span class="badge-voce">
-                            Você
-                        </span>
-                    @endif
-
-                    @if($item->posicao === 1)
-                        <span class="badge-proximo">
-                            Próximo
-                        </span>
-                    @endif
-                </div>
-            @endforeach
-        @endif
     </div>
-
-</div>
-
-
 </body>
 </html>
