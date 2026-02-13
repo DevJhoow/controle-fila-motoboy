@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Cadastro realizado</title>
+@extends('layouts.home')
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('title', 'Cadastro realizado')
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+@section('content')
 
-    <!-- Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
-    <style>
+<style>
         body {
             min-height: 100vh;
             background: linear-gradient(180deg, #0d1b2a, #000);
@@ -46,8 +38,7 @@
             color: #9ca3af !important;
         }
     </style>
-</head>
-<body>
+
     <div class="container px-3">
         <div class="card p-4 text-center">
 
@@ -86,5 +77,5 @@
 
         </div>
     </div>
-</body>
-</html>
+
+@endsection
