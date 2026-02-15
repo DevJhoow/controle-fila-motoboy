@@ -18,7 +18,7 @@ class ContatoController extends Controller
         Mail::raw(
             "Nome: {$dados['nome']}\nEmail: {$dados['email']}\n\nMensagem:\n{$dados['mensagem']}",
             function ($message) use ($dados) {
-                $message->to('jdk99.rodriges@gmail.com')
+                $message->to('jonathan.luisrodrigues@hotmail.com')
                         ->subject('📩 Novo contato do sistema de motoboys')
                         ->replyTo($dados['email'], $dados['nome']);
             }
