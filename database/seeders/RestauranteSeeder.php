@@ -13,10 +13,12 @@ class RestauranteSeeder extends Seeder
      */
     public function run(): void
     {
-        Restaurante::create([
-            'nome' => 'Rancho Colonial Grill',
-            'latitude' => -23.550520,
-            'longitude' => -46.633308,
-        ]);
+        Restaurante::firstOrCreate(
+            ['nome' => 'Rancho Colonial Grill'],
+            [
+                'latitude' => -23.550520,
+                'longitude' => -46.633308,
+            ]
+        );
     }
 }
